@@ -14,6 +14,7 @@ const Register = () => {
   const[name,setName]=useState('');
   const[email, setEmail]=useState('');
   const[password, setPassword]=useState('');
+  const[loading,setLoading]=useState(false)
   const {backendUrl, token, setToken,navigate}=useContext(UserContext)
   //  const formData = new  FormData();
 
@@ -26,13 +27,14 @@ const Register = () => {
 
    const submitHandler= async()=>{
     try{
+      setLoading(true)
       const response=await axios.post(`${backendUrl}/registar/`,{name,email,password})
       console.log(response.data.success)
       if(response.data.success ==true){
         setToken(response.data.token)
         localStorage.setItem('token',response.data.token)
        
-        
+        setLoading(false)
         
       }
       else{
@@ -41,6 +43,9 @@ const Register = () => {
     }
     catch(e){
       console.log(e.message )
+    }
+    finally{
+      setLoading(false)
     }
    }
 
@@ -77,7 +82,7 @@ const Register = () => {
         </div>
 
         {/* button */}
-        <Button color={'dark'} onClick={()=>{submitHandler()}} className=' inter text-lg font-bold  mt-5 w-56 sm:w-[25vw]'>{"Registar  ->"}</Button>
+        <Button color={'dark'} onClick={()=>{submitHandler()}} className=' inter text-lg font-bold  mt-5 w-56 sm:w-[25vw]'>{loading?"Loading.....":"Registar  ->"}</Button>
 
         <hr className="mt-4 w-[50vw] sm:w-[25vw]  bg-gray-400 h-0.5 border-0" />
        <div className=' mt-2 flex flex-row'> <p className=' inter text-sm text-gray-500 '>Already have an account ?</p><NavLink to={"/login"}><p className=' ml-1 text-sm font-bold dark:text-blue-600'>Login</p></NavLink></div> 

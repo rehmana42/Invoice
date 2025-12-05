@@ -16,6 +16,7 @@ export const Login = () => {
    
     const[email, setEmail]=useState('');
     const[password, setPassword]=useState('');
+    const[loading, setLoading]=useState(false)
   // useContext 
     const {backendUrl, token, setToken, navigate}=useContext(UserContext)
 
@@ -23,12 +24,15 @@ export const Login = () => {
 
     const submitHandler= async()=>{
       try{
-        const response=await axios.post(`${backendUrl}/login/`,{email,password})
+        setLoading(true)
+        const response=await axios.post(`${backendUrl}/login`,{email,password})
         console.log(response.data)
         if(response.data.success ==true){
+          console.log(response.data)
           setToken(response.data.loginToken)
           localStorage.setItem('token',response.data.loginToken)
-         
+          setLoading(false)
+          navigate('*')
           
           
         }
@@ -38,6 +42,9 @@ export const Login = () => {
       }
       catch(e){
         console.log(e.message )
+      }
+      finally{
+        setLoading(false)
       }
      }
   useEffect(()=>{
@@ -67,7 +74,7 @@ export const Login = () => {
         </div>
 
         {/* button */}
-        <Button color={'dark'} className=' inter text-lg font-bold  mt-5 w-56 sm:w-[25vw]' onClick={()=>{submitHandler()}}>{"Login  ->"}</Button>
+        <Button color={'dark'} className=' inter text-lg font-bold  mt-5 w-56 sm:w-[25vw]' onClick={()=>{submitHandler()}}>{loading? "Loading....":"Login  ->"}</Button>
 
         <hr className="mt-4 w-[25vw]  bg-gray-400 h-0.5 border-0" />
        <div className=' mt-2 flex flex-row'> <p className=' inter text-sm text-gray-500 '>Don't have a account ?</p> <NavLink to={'/registar'}><p className=' ml-1 text-sm font-bold dark:text-blue-600'>Sign Up</p></NavLink></div> 

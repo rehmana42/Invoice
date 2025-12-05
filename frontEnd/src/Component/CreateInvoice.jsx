@@ -12,6 +12,7 @@ const CreateInvoice = () => {
   const {backendUrl, token}=useContext(UserContext)
 
   //all inputs and useState variable 
+   const[loading, setLoading]=useState(false)
    const[invoiceNumber,setInvoiceNumber]=useState('')
    const[startDate,setStartDate]=useState(null)
 
@@ -86,16 +87,21 @@ const Total = subTotal + tax;
 
 const submitHandler=async()=>{
   try{
+    setLoading(true)
     const response=await axios.post(`${backendUrl}/createInvoice/`,{invoiceNumber,startDate,dueDate,businessName,businessEmail,businessAddress,businessPhone, clientName, clientEmail, clientAddress,clientPhone, note,paymentTerm,item, tax,subTotal,Total},{headers:{token}})
     console.log(response.data)
     if(response.data.success){
+
       toast.success(" invoice created successfully")
+    
     }
+    setLoading(false)
   }
   catch(e){
     console.log(e.message)
-
-
+  }
+  finally{
+    setLoading(false)
   }
 }
 
@@ -274,7 +280,7 @@ return(
 
 <div className='  w-full h-[20vh]'>
 <Button color="yellow"  onClick={()=>{submitHandler()}}  className=" mx-2 !h-[5vh] w-[95vw] sm:w-[75vw] mb-6 sm:ml-10 bg-black text-white dark:bg-white  dark:text-black" >
-  Save
+  {loading? "Loading....":"save"}
 </Button>
 </div>
 
