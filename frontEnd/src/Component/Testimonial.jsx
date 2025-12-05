@@ -3,6 +3,7 @@ import { Avatar, Blockquote } from "flowbite-react";
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/all';
 import { useGSAP } from '@gsap/react';
+import { assets } from '../assets/assets';
 const Testimonial = () => {
   const container=useRef()
   
@@ -62,7 +63,7 @@ const Testimonial = () => {
         </p>
       </Blockquote>
       <figcaption className="mt-6 flex  items-center justify-center space-x-3">
-        <Avatar rounded size="sm" img="src/assets/Avatar1.jpg" alt="profile picture" />
+        <Avatar rounded size="sm" img={assets.Avatar1} alt="profile picture" />
         <div className="flex items-center divide-x-2 divide-gray-500 dark:divide-gray-700">
           <cite className="pr-3 font-medium text-gray-900 dark:text-white">Micheal Gough</cite>
           <cite className="pl-3 text-sm text-gray-500 dark:text-gray-400">CEO at Google</cite>
@@ -87,7 +88,7 @@ const Testimonial = () => {
         </p>
       </Blockquote>
       <figcaption className="mt-6 flex  items-center justify-center space-x-3">
-        <Avatar rounded size="sm" img="src/assets/Avatar2.jpg" alt="profile picture" />
+        <Avatar rounded size="sm" img={assets.Avatar2} alt="profile picture" />
         <div className="flex items-center divide-x-2 divide-gray-500 dark:divide-gray-700">
           <cite className="pr-3 font-medium text-gray-900 dark:text-white">Shalini Gough</cite>
           <cite className="pl-3 text-sm text-gray-500 dark:text-gray-400">CEO at Google</cite>
@@ -113,7 +114,7 @@ const Testimonial = () => {
         </p>
       </Blockquote>
       <figcaption className="mt-6 flex  items-center justify-center space-x-3">
-        <Avatar rounded size="sm" img="src/assets/Avatar3.jpg" alt="profile picture" />
+        <Avatar rounded size="sm" img={assets.Avatar3} alt="profile picture" />
         <div className="flex items-center divide-x-2 divide-gray-500 dark:divide-gray-700">
           <cite className="pr-3 font-medium text-gray-900 dark:text-white">Soumitrak khan</cite>
           <cite className="pl-3 text-sm text-gray-500 dark:text-gray-400">CEO at Google</cite>

@@ -2,6 +2,7 @@ import { useGSAP } from '@gsap/react'
 import gsap from 'gsap'
 import React from 'react'
 import { GlobalTL } from './GlobalTL'
+import { assets } from '../assets/assets'
 
 
 const HeroSection = () => {
@@ -23,7 +24,7 @@ const HeroSection = () => {
   ease: "power3.out",
     })
 
-
+ 
     //img
     GlobalTL.from('#heroImage',{
       x:-300,
@@ -47,7 +48,7 @@ Effortless Billing for Freelancers
 
 
 {/* hero Animation  */}
-<img id='heroImage' src='src/assets/heroImage.png' className='  h-[50vh] sm:w-[30%]' />
+<img id='heroImage' src={assets.heroImage} className='  h-[50vh] sm:w-[30%]' />
   </div>
 </div>
   )
