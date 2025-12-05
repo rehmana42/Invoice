@@ -51,7 +51,7 @@ const Snav = () => {
             <SidebarItem icon={LayoutDashboard}  as={NavLink} to='/allinvoice'  > Dashboard </SidebarItem>
             {/* <SidebarItem icon={NotebookIcon}  as={NavLink}  to='/invoice'>Invoice </SidebarItem> */}
             <SidebarItem icon={PlusCircle}  as={NavLink} to='/createInvoice'>  Create Invoice</SidebarItem>
-            <SidebarItem icon={LogIn} className=" mt-[70vh] sm:mt-[57vh]" onClick={()=>{setToken(''); localStorage.setItem('token','')  ;navigate('/')}}>logout</SidebarItem>
+            <SidebarItem icon={LogIn} className=" mt-[60vh] sm:mt-[57vh]" onClick={()=>{setToken(''); localStorage.setItem('token','')  ;navigate('/')}}>logout</SidebarItem>
           </SidebarItemGroup>
         </SidebarItems>
       </Sidebar>
