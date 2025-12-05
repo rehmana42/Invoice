@@ -35,6 +35,7 @@ const Register = () => {
         localStorage.setItem('token',response.data.token)
        
         setLoading(false)
+        navigate("*")
         
       }
       else{
