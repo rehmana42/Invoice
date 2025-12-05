@@ -17,7 +17,7 @@ const TopBar = () => {
             <h2 className="inter pl-5 text-2xl cursor-pointer">
               Welcome back, Abdul
             </h2>
-    <DarkThemeToggle className="  relative left-10 "/>
+    <DarkThemeToggle className="  relative left-5 "/>
     
           </div>
   )
