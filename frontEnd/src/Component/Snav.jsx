@@ -27,17 +27,19 @@ const Snav = () => {
 
       {/* Sidebar */}
       <Sidebar
-        theme={{
-          root: {
-            base: "h-screen !rounded-none fixed sm:static z-50 top-0 left-0 transition-transform duration-300 ease-in-out",
-            inner:
-              "h-full overflow-y-auto overflow-x-hidden bg-white px-3 py-4 !rounded-none ",
-          },
-        }}
-        className={`${
-          open ? "translate-x-0" : "-translate-x-full"
-        }   sm:translate-x-0 sm:block w-64 border-r border-black  shadow-md  shadow-inherit overflow-y-hidden `}
-      >
+  theme={{
+    root: {
+      base:
+        "h-screen overflow-hidden !rounded-none fixed sm:static z-50 top-0 left-0 transition-transform duration-300 ease-in-out",
+      inner:
+        "h-full overflow-hidden bg-white px-3 py-4 !rounded-none",
+    },
+  }}
+  className={`${
+    open ? "translate-x-0" : "-translate-x-full"
+  } sm:translate-x-0 sm:block w-64 border-r border-black shadow-md shadow-inherit`}
+>
+
         <SidebarLogo className="rubik-dirt-regular text-3xl">
           Invoizo
         </SidebarLogo>
@@ -49,7 +51,7 @@ const Snav = () => {
             <SidebarItem icon={LayoutDashboard}  as={NavLink} to='/allinvoice'  > Dashboard </SidebarItem>
             {/* <SidebarItem icon={NotebookIcon}  as={NavLink}  to='/invoice'>Invoice </SidebarItem> */}
             <SidebarItem icon={PlusCircle}  as={NavLink} to='/createInvoice'>  Create Invoice</SidebarItem>
-            <SidebarItem icon={LogIn} className=" mt-[60vh] sm:mt-[57vh]" onClick={()=>{setToken(''); localStorage.setItem('token','')  ;navigate('/')}}>logout</SidebarItem>
+            <SidebarItem icon={LogIn} className=" mt-[70vh] sm:mt-[57vh]" onClick={()=>{setToken(''); localStorage.setItem('token','')  ;navigate('/')}}>logout</SidebarItem>
           </SidebarItemGroup>
         </SidebarItems>
       </Sidebar>

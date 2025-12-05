@@ -106,7 +106,7 @@ const deleteInvoice=async(id)=>{
            
            <div className=' flex flex-col gap-1'>
             <Label className=' text-xl sm:text-base text-gray-500  font-semibold '>Total Invoice</Label>
-            <Label className=' text-2xl sm:text-lg font-bold'>{filteredInvoice.length}</Label>
+            <Label className=' text-2xl sm:text-lg font-bold'>{filteredInvoice?.length}</Label>
            </div>
            </div>
         </Card>
@@ -122,7 +122,7 @@ const deleteInvoice=async(id)=>{
            
            <div className=' flex flex-col gap-1'>
             <Label className=' text-xl sm:text-base text-gray-500  font-semibold '>Total Paid</Label>
-            <Label className=' text-2xl sm:text-lg font-bold'>{filteredInvoice.filter(i=> i.status =='paid').length}</Label>
+            <Label className=' text-2xl sm:text-lg font-bold'>{filteredInvoice?.filter(i=> i.status =='paid').length}</Label>
            </div>
            </div>
         </Card>
@@ -138,7 +138,7 @@ const deleteInvoice=async(id)=>{
            
            <div className=' flex flex-col gap-1'>
             <Label className=' text-xl sm:text-base text-gray-500  font-semibold '>Total UnPaid</Label>
-            <Label className=' text-2xl sm:text-lg font-bold'>{filteredInvoice.filter(i=> i.status =='unpaid').length}</Label>
+            <Label className=' text-2xl sm:text-lg font-bold'>{filteredInvoice?.filter(i=> i.status =='unpaid').length}</Label>
            </div>
            </div>
         </Card>
@@ -198,7 +198,7 @@ const deleteInvoice=async(id)=>{
         </TableHead>
         <TableBody className="divide-y">
            {
-            invoice && invoice.length <=0?
+            invoice && invoice?.length <=0?
             <TableRow>
       <TableCell colSpan={5} className="text-center py-6 text-gray-500">
         No data found
